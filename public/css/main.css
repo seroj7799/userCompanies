@@ -1,0 +1,9 @@
+.show-message-div{
+    position: absolute;
+    top: 65px;
+    right: 20px;
+}
+
+.alert-message{
+    z-index: 1;
+}
