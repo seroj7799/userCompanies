@@ -85,7 +85,7 @@ class CompanyController extends Controller
             $company->save();
             return redirect()->route('companies.index')->with('success', 'Company deleted.');
         } catch (\Exception $e) {
-            Log::error('Error in someFunction: ' . $e->getMessage(), [
+            Log::error('Error in companyController.delete: ' . $e->getMessage(), [
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);

@@ -30,7 +30,7 @@ class AdminController extends Controller
             $user->save();
             return redirect()->back()->with('success', 'User status updated.');
         } catch (\Exception $e) {
-            Log::error('Error in someFunction: ' . $e->getMessage(), [
+            Log::error('Error in adminController.blockUser: ' . $e->getMessage(), [
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
@@ -61,12 +61,13 @@ class AdminController extends Controller
             return response()->json(['message' => 'Company assign successfully!']);
 
         } catch (\Exception $e) {
-            Log::error('Error in addCompanyOnUser: ' . $e->getMessage(), [
+            Log::error('Error in adminController.addCompanyOnUser: ' . $e->getMessage(), [
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
 
-            return response()->json(['message' => 'Something went wrong']);        }
+            return response()->json(['message' => 'Something went wrong']);
+        }
 
     }
 
@@ -82,12 +83,12 @@ class AdminController extends Controller
 
             return response()->json(['message' => 'Company deleted successfully!']);
         } catch (\Exception $e) {
-            Log::error('Error in deleteCompanyOnUser: ' . $e->getMessage(), [
+            Log::error('Error in adminController.deleteCompanyOnUser: ' . $e->getMessage(), [
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
 
-            return view('error');
+            return response()->json(['message' => 'Something went wrong']);
         }
 
     }

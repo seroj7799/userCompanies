@@ -55,8 +55,6 @@
                     url: url,
                     data: { companyId },
                     success: function (response) {
-                        console.log(response)
-
                         $('.show-message-div').append(`
                         <div class="alert alert-success alert-message" role="alert">
                             ${response.message}

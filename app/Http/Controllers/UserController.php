@@ -20,7 +20,6 @@ class UserController extends Controller
         if ($companies->count() === 1) {
             $company = $companies->first();
             return redirect(route('dashboard.switchCompany',$company->tax_account));
-//            return view('dashboard', compact('company'));
         }
 
         return view('select-company', compact('companies'));
