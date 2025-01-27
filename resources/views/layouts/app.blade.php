@@ -17,16 +17,18 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="show-message-div" style="" >
-            @if(session()->has('success'))
-                <div class="alert alert-success alert-message" role="alert">
-                    {{ session()->get('success') }}
-                </div>
-            @endif
+            @auth
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-message" role="alert">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
             @if($errors->has('message'))
                 <div class="alert alert-danger alert-message" role="alert">
                     {{ $errors->first('message') }}
                 </div>
             @endif
+            @endauth
         </div>
             <a class="navbar-brand"
                href="{{ auth()->guard('admin')->check() ? route('admin.dashboard') : route('dashboard') }}">

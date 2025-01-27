@@ -61,6 +61,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         $user = User::where('email', $credentials['email'])->first();
+        $credentials['role_id'] = '2';
         if ($user && $user->is_blocked == 1) {
             return redirect()->back()->withErrors(['message' => 'Your account is blocked. Please contact support.']);
         }
